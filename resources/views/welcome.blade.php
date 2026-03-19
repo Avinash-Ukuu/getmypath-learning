@@ -25,6 +25,25 @@
         .main-list p {
             color: #fff;
         }
+
+        .form-tabs {
+            margin-bottom: 10px;
+        }
+
+        .tab-btn {
+            padding: 8px 15px;
+            border: 1px solid #ccc;
+            cursor: pointer;
+            background: #f5f5f5 !important;
+        }
+
+        .tab-btn.active {
+            background: orange !important;
+            color: #fff;
+        }
+        .form-wrapper form input{
+            width: -webkit-fill-available;
+        }
     </style>
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-269WEB7TTR"></script>
     <script>
@@ -51,28 +70,42 @@
                     </svg>
                 </div>
                 <h3 class="form-heading">Get Certification Quote for Free</h3>
-                <h3 class="form-input-heading form-input-required">Full Name</h3>
-                <input type="text" name="name" required placeholder="Full Name*">
-
-                <!-- Email -->
-                <h3 class="form-input-heading form-input-required">Email</h3>
-                <input type="email" name="email" required placeholder="E-Mail*">
-
-                <!-- Mobile -->
-                <h3 class="form-input-heading form-input-required">Mobile</h3>
-                <input type="text" name="mobile" pattern="[6-9]\d{9}" maxlength="10" required placeholder="Phone Number*">
-
-                <!-- Designation -->
-                <h3 class="form-input-heading form-input-required">Designation</h3>
-                <input type="text" name="designation" required placeholder="Your Designation*">
-
-                <!-- Company Name -->
-                <h3 class="form-input-heading form-input-required">Company Name</h3>
-                <input type="text" name="company_name" required placeholder="Company Name*">
-
-                <!-- Message -->
-                <h3 class="form-input-heading">Message</h3>
-                <textarea name="message" rows="4" placeholder="Enter your message"></textarea>
+                <div class="form-tabs">
+                    <button type="button" class="tab-btn active" style="color: black" data-type="employer">My Employer</button>
+                    <button type="button" class="tab-btn" style="color: black" data-type="self">My Self</button>
+                </div>
+                <div class="input-fields">
+                    <input type="hidden" name="user_type" value="employer">
+                    <div class="input-container">
+                        <h3 class="form-input-heading form-input-required">Full Name</h3>
+                        <input type="text" name="name" required placeholder="Full Name*">
+                    </div>
+                    <div class="input-container">
+                        <!-- Email -->
+                        <h3 class="form-input-heading form-input-required">Email</h3>
+                        <input type="email" name="email" required placeholder="E-Mail*">
+                    </div>
+                    <div class="input-container">
+                        <!-- Mobile -->
+                        <h3 class="form-input-heading form-input-required">Mobile</h3>
+                        <input type="text" name="mobile" pattern="[6-9]\d{9}" maxlength="10" required placeholder="Phone Number*">
+                    </div>
+                    <div class="input-container employer-fields">
+                        <!-- Designation -->
+                        <h3 class="form-input-heading form-input-required">Designation</h3>
+                        <input type="text" name="designation" required placeholder="Your Designation*">
+                    </div>
+                    <div class="input-container employer-fields">
+                        <!-- Company Name -->
+                        <h3 class="form-input-heading form-input-required">Company Name</h3>
+                        <input type="text" name="company_name" required placeholder="Company Name*">
+                    </div>
+                    <div class="input-container">
+                        <!-- Message -->
+                        <h3 class="form-input-heading">Message</h3>
+                        <textarea name="message" style="width: -webkit-fill-available;" rows="4" placeholder="Enter your message"></textarea>
+                    </div>
+                </div>
                 <!--<h3 class="form-input-heading">Comments</h3>-->
                 <!--<textarea rows="4" placeholder="Enter comment" name="comment"></textarea>-->
                 <div class="response-wrapper"></div>
@@ -121,8 +154,8 @@
                                 <a href="#contact" class="link smoothscroll">Contact Us</a>
                             </li>
                             <li class="links-li pmp-exam-buttons">
-                                <a href="tel:+917676483860" class="btn-white ">
-                                    <img src="{{ asset('assets/frontend/images/call-us.svg')}}" alt="call-us">+917676483860</a>
+                                <a href="tel:+971 563524051" class="btn-white ">
+                                    <img src="{{ asset('assets/frontend/images/call-us.svg')}}" alt="call-us">+971 563524051</a>
                                 <a class="btn-orange open-popup lets-connect-btn" data-heading="Download Syllabus"
                                     data-quote="PMP Certification Training" data-enquirytypedownload="2000"
                                     data-downloadlink="https://tkacoursematerial.s3.eu-west-2.amazonaws.com/PMP%C2%AE%20Certification%20Training.pdf">
@@ -184,9 +217,9 @@
                         </div>
                     </div>
                     <div class="banner-graph">
-                        <img src="{{ asset('assets/frontend/images/graph-image-xl-in.png')}}" alt="graph-image" class="mob-graph"
+                        <img src="{{ asset('assets/frontend/images/banner.png')}}" alt="graph-image" class="mob-graph"
                             style="border-radius: 5px;">
-                        <img src="{{ asset('assets/frontend/images/graph-image-xl-in.png')}}" alt="graph-image-xl" class="desktop-graph"
+                        <img src="{{ asset('assets/frontend/images/banner.png')}}" alt="graph-image-xl" class="desktop-graph"
                             style="border-radius: 5px;">
                         <div class="graph-percent" style="background: linear-gradient(#cdffd8, #94b9ff);">
                             <div class="graph-circle">
@@ -313,7 +346,7 @@
                                     <div class="middle-content">
                                         <div class="inner-box">
                                             <p>Average Salary Per Annum</p>
-                                            <h3>₹35L</h3>
+                                            <h3>138K AED</h3>
                                             <span><img src="{{ asset('assets/frontend/images/salary.svg')}}" alt="salary"></span>
                                         </div>
                                         <div class="inner-box">
@@ -358,7 +391,7 @@
                                     <div class="bar bar-bottom"></div>
                                     <div class="bar bar-left"></div>
                                 </div>
-                                <h2>What's Included in Our PMP® Certification Program Certification Course?</h2>
+                                <h2>What's Included in Our PMP® Certification Training Course?</h2>
                             </div>
                             <div class="included-list">
                                 <ul class="list">
@@ -464,7 +497,12 @@
                             </div>
                             <form class="pmp-exam-form lead-form" id="pmp-other" method="post">
                                 <h2>Request For More Information</h2>
+                                <div class="form-tabs">
+                                    <button type="button" class="tab-btn active" data-type="employer">My Employer</button>
+                                    <button type="button" class="tab-btn" data-type="self">My Self</button>
+                                </div>
                                 <div class="input-fields">
+                                    <input type="hidden" name="user_type" value="employer">
                                     <div class="input-container">
                                        <input class="input-tag" type="text" name="name" placeholder="Full Name*" required>
                                     </div>
@@ -474,14 +512,14 @@
                                     <div class="input-container">
                                         <input class="input-tag" type="tel" name="mobile" pattern="[6-9]\d{9}" maxlength="10" placeholder="Phone Number*" required>
                                     </div>
-                                    <div class="input-container">
+                                    <div class="input-container employer-fields">
                                         <input class="input-tag" type="text" name="designation" placeholder="Designation*" required>
                                     </div>
-                                    <div class="input-container">
+                                    <div class="input-container employer-fields">
                                         <input class="input-tag" type="text" name="company_name" placeholder="Company Name*" required>
                                     </div>
                                     <div class="input-container">
-                                        <input class="input-tag" type="text" name="comment"
+                                        <input class="input-tag" type="text" name="message"
                                             placeholder="Message(Optional)">
                                     </div>
                                 </div>
