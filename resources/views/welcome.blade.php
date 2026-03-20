@@ -76,6 +76,64 @@
             top: 80px;
             transform: rotateX(0deg);
         }
+
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        .popup-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .popup-content {
+            position: relative;
+            width: 80%;
+            max-width: 800px;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+        .popup-overlay.active .popup-content {
+            transform: scale(1);
+        }
+        .close-btn-sec {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        .close-btn-sec:hover {
+            color: #FF416C;
+        }
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
     </style>
 </head>
 
@@ -1332,6 +1390,16 @@
         </section>
         <span class="pmp-dark-overlay"></span>
         <div class="enq-popup-section"></div>
+        <div class="popup-overlay" id="popupOverlay">
+            <div class="popup-content">
+                <span class="close-btn-sec" id="closePopup">×</span>
+                <div class="video-container">
+                    <iframe id="youtubeVideo" width="560" height="315" src="" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen=""></iframe>
+                </div>
+            </div>
+        </div>
     </main>
     <script src="{{ asset('assets/frontend/js/jquery.min.js') }}"></script>
     <script src="{{ asset('assets/frontend/js/jquery.ba-throttle-debounce.min.js') }}"></script>
@@ -1543,6 +1611,32 @@
                 $(this).toggleClass("active");
                 $(this).find('.ans').slideToggle();
                 $(this).siblings(".faq-head").removeClass("active").find('.ans').slideUp();
+            });
+
+            const watchDemoBtn = document.getElementById('watchDemoBtn');
+            const popupOverlay = document.getElementById('popupOverlay');
+            const closePopup = document.getElementById('closePopup');
+            const youtubeVideo = document.getElementById('youtubeVideo');
+            const videoId = "hH0h0HqFJcs";
+            watchDemoBtn.addEventListener('click', function() {
+                youtubeVideo.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+                popupOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+            closePopup.addEventListener('click', function() {
+                popupOverlay.classList.remove('active');
+                youtubeVideo.src = '';
+                document.body.style.overflow = 'auto';
+            });
+            popupOverlay.addEventListener('click', function(e) {
+                if (e.target === popupOverlay) {
+                    closePopup.click();
+                }
+            });
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && popupOverlay.classList.contains('active')) {
+                    closePopup.click();
+                }
             });
         });
 
