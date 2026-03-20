@@ -35,8 +35,8 @@
     text-align: center;
     display: block;
     transform: scale(1);
-    transition: 0.5s; 
-    font-size: 17px; 
+    transition: 0.5s;
+    font-size: 17px;
 }
 .success label{
     color: midnightblue;
@@ -86,7 +86,7 @@
 	padding: 0px 0px;
 	border-radius: 5px;
 	background: #fff;
-	overflow: hidden;    
+	overflow: hidden;
 }
 .form-wrapper h3{
     margin-top: 10px;
@@ -109,7 +109,7 @@
 /*.form-wrapper-inner{
 	width: 100%;
 	display: grid;
-	grid-template-columns: 50% 50%;	
+	grid-template-columns: 50% 50%;
 }*/
 .form-style-wrapper{
 	height: 100%;
@@ -143,7 +143,7 @@
     flex-direction: column;
 }
 .form-wrapper form input,
-.form-wrapper form select, 
+.form-wrapper form select,
 .form-wrapper form textarea{
 	padding: 9px 10px;
 	border: none;
@@ -153,6 +153,7 @@
 	background: #fff;
 	border-radius: 3px;
 	border: 1px solid rgba(0, 0, 0, 0.2);
+    width: -webkit-fill-available;
 }
 /*.form-wrapper form input{*/
 /*	background: rgba(0,0,0,0.05);*/
@@ -220,13 +221,13 @@
 	.get-this-offer{
 		top: calc(90% - 40px);
     	left: calc(79% - 170px);
-	}	
+	}
 }
 @media (max-width: 700px) {
 	.get-this-offer{
 		top: calc(93% - 40px);
     	left: calc(82% - 170px);
-	}	
+	}
 }
 @media (max-width: 600px) {
 	.get-this-offer{
@@ -247,5 +248,5 @@
 		font-size: 13px;
 		top: calc(97% - 30px);
     	left: calc(86% - 130px);
-	}	
+	}
 }
